@@ -1,5 +1,44 @@
-#menu
+from Cuenta import *
 
-menu = Menu("¡Hola!, bienvenido al menú\nElige la opción de tu agrado:","02/03/2006", "Débito", 95000)
-menu.darBienvenida()
-menu.despliegaOpciones()
+class Menu:
+    def __init__(self, mensajeDeBienvenida):
+        self.mensajeDeBienvenida = mensajeDeBienvenida
+
+    def darBienvenida(self):
+        print(self.mensajeDeBienvenida)
+
+    def despliegaMenu(self):
+        print("\n1. Depositar")
+        print("2. Retirar")
+        print("3. Ver información de la cuenta")
+        print("4. Salir")
+
+    def procesaOpcion(self, cuenta):
+
+        intentos = 0
+
+        while intentos < 3:
+
+            opcion = input("Seleccione una opción: ")
+
+            if opcion == "1":
+                cantidad = float(input("Ingrese la cantidad a depositar: "))
+                cuenta.depositar(cantidad)
+
+            elif opcion == "2":
+                cantidad = float(input("Ingrese la cantidad a retirar: "))
+                cuenta.retirar(cantidad)
+
+            elif opcion == "3":
+                cuenta.mostrarInformacion()
+
+            elif opcion == "4":
+                print("Gracias por usar el sistema bancario rockerin, vuelva pronto.")
+                break
+
+            else:
+                intentos += 1
+                print("Opción inválida. Intento", intentos, "de 3")
+
+                if intentos == 3:
+                    print("Demasiados intentos inválidos. El sistema se cerrará.")
