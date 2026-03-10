@@ -1,1 +1,140 @@
-#temp
+# IRVIN ADRIAN LUNA PAZ
+
+
+Ejercicio 1:
+a = float(input('Da tu coeficiente a: '))
+b = float(input('Da tu coeficiente b: '))
+c = float(input('Da tu coeficiente c: '))
+
+dis = b**2 - 4*a*c   # Discriminante
+
+if a != 0:
+    
+    if dis > 0:
+        print("Hay dos soluciones reales")
+        x1 = (-b + (dis**0.5)) / (2*a)
+        x2 = (-b - (dis**0.5)) / (2*a)
+        print("x1 =", x1)
+        print("x2 =", x2)
+
+    elif dis == 0:
+        print("La solución real es única")
+        x = -b / (2*a)
+        print("x =", x)
+
+    else:
+        print("Las soluciones son complejas")
+        real = -b / (2*a)
+        imag = ((-dis)**0.5) / (2*a)
+
+        print("x1 =", real, "+", imag, "i")
+        print("x2 =", real, "-", imag, "i")
+
+elif a == 0:   # Si a es 0, la ecuación se vuelve lineal: bx + c = 0
+    
+    if b != 0:
+        print("La ecuación es lineal y tiene una solución")
+        x = -c / b
+        print("x =", x)
+
+    else:  # a = 0 y b = 0
+        if c == 0:
+            print("Soluciones infinitas")
+        else:
+            print("Contradicción")
+
+
+
+
+Ejercicio 2:
+n = int(input("Introduce un número entero positivo: "))
+
+suma = 0
+
+while n > 0:
+    digito = n % 10
+    suma = suma + digito
+    n = n // 10
+
+print("La suma de los dígitos es:", suma)
+
+Ejercicio 3:
+palabra = input("Introduce una palabra: ")
+
+if palabra == palabra[::-1]:
+    print("Es un palíndromo")
+else:
+    print("No es un palíndromo")
+
+
+Ejercicio 4:
+import random
+
+suma = 0
+
+while True:
+    num = random.uniform(0.01, 0.20)
+
+    if suma + num > 1.50:
+        break
+
+    suma = suma + num
+    print("Número:", round(num,3), "Suma:", round(suma,3))
+
+print("Suma final:", round(suma,3))
+
+
+Ejercicio 5:
+#inciso a
+n = int(input("Introduce un número entero: "))
+
+es_primo = True
+
+if n <= 1:
+    es_primo = False
+else:
+    for i in range(2, n):
+        if n % i == 0:
+            es_primo = False
+            break
+
+if es_primo:
+    print("El número es primo")
+else:
+    print("El número no es primo")
+
+#inciso b
+N = int(input("¿Cuántos números primos quieres?: "))
+
+contador = 0
+num = 2
+
+while contador < N:
+    es_primo = True
+    
+    for i in range(2, num):
+        if num % i == 0:
+            es_primo = False
+            break
+    
+    if es_primo:
+        print(num)
+        contador += 1
+    
+    num += 1
+
+
+Ejercicio 6:
+a = 1
+b = 1
+
+print(a)
+print(b)
+
+for i in range(98):
+    c = a + b
+    print(c)
+    
+    a = b
+    b = c
+
