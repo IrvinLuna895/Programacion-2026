@@ -22,10 +22,12 @@ class Menu:
             opcion = input("Seleccione una opción: ")
 
             if opcion == "1":
+                print("Estas en la opción de Depositar")
                 cantidad = float(input("Ingrese la cantidad a depositar: "))
                 cuenta.depositar(cantidad)
 
             elif opcion == "2":
+                 print("Estas en la opción de Retirar")
                 cantidad = float(input("Ingrese la cantidad a retirar: "))
                 cuenta.retirar(cantidad)
 
