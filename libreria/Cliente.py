@@ -1,3 +1,7 @@
+
+from Biblioteca import
+
+
 class Cliente:
     def __init__(self, nombre, edad, biblioteca):
         self.nombre = nombre
