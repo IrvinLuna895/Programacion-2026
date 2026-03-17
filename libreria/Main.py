@@ -1,6 +1,6 @@
-from biblioteca import Biblioteca
-from cliente import Cliente
-from menu import Menu
+from Biblioteca import *
+from Cliente import *
+from Menu import *
 
 
 class Main:
