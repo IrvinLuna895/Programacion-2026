@@ -1,20 +1,21 @@
-''' 
-Created on March,2026
-@author: irvinluna
-
-''' 
 
 from Cuenta import *
 
 class Cliente:
-    def __init__(self, nombre, direccion, edad, cuenta):
+    def __init__(self, nombre, cuenta):
         self.nombre = nombre
-        self.direccion = direccion
-        self.edad = edad
-        self.cuenta = cuenta  
+        self.cuenta = cuenta
 
     def __str__(self):
-        return (f"Nombre: {self.nombre}\n"
-                f"Dirección: {self.direccion}\n"
-                f"Edad: {self.edad}\n"
-                f"{self.cuenta}") 
+        return (
+            f"\n--- Cliente: {self.nombre} ---\n"
+            f"{self.cuenta}"
+        )
+
+    def depositar(self, cantidad):
+        print(f"\nCliente: {self.nombre}")
+        self.cuenta.depositar(cantidad)
+
+    def retirar(self, cantidad):
+        print(f"\nCliente: {self.nombre}")
+        self.cuenta.retirar(cantidad)
