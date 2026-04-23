@@ -2,48 +2,44 @@ from Cuenta import *
 from Cliente import *
 
 class Menu:
-    def __init__(self, mensaje):
-        self.mensaje = mensaje
+    def __init__(self, mensajeDeBienvenida):
+        self.mensajeDeBienvenida = mensajeDeBienvenida
 
-    def mostrar(self):
-        print(self.mensaje)
-        print("1. Depositar")
+    def darBienvenida(self):
+        print(self.mensajeDeBienvenida)
+
+    def despliegaMenu(self):
+        print("\n1. Depositar")
         print("2. Retirar")
-        print("3. Ver cliente")
+        print("3. Ver información de la cuenta")
         print("4. Salir")
 
-    def ejecutar(self, cliente):
+    def procesaOpcion(self, cliente):
         intentos = 0
 
         while intentos < 3:
-            opcion = input("Elige opción: ")
+            opcion = input("Seleccione una opción: ")
 
             if opcion == "1":
-                cantidad = float(input("Cantidad a depositar: "))
-                if cantidad > 0:
-                    cliente.cuenta.depositar(cantidad)
-                    print("Depósito exitoso")
-                else:
-                    print("Solo valores positivos")
+                print("Estas en la opción de Depositar")
+                cantidad = float(input("Ingrese la cantidad a depositar: "))
+                cliente.depositar(cantidad)
 
             elif opcion == "2":
-                cantidad = float(input("Cantidad a retirar: "))
-                if cantidad > 0 and cantidad <= cliente.cuenta.saldo:
-                    cliente.cuenta.retirar(cantidad)
-                    print("Retiro exitoso")
-                else:
-                    print("Cantidad inválida o fondos insuficientes")
+                print("Estas en la opción de Retirar")
+                cantidad = float(input("Ingrese la cantidad a retirar: "))
+                cliente.retirar(cantidad)
 
             elif opcion == "3":
-                print(cliente)
+                print(cliente)  # ← aquí usamos __str__
 
             elif opcion == "4":
-                print("Saliendo...")
+                print("Gracias por usar el sistema bancario rockerin, vuelva pronto.")
                 break
 
             else:
                 intentos += 1
-                print(f"Opción inválida ({intentos}/3)")
+                print("Opción inválida. Intento", intentos, "de 3")
 
-        if intentos == 3:
-            print("Sistema bloqueado")
+                if intentos == 3:
+                    print("Demasiados intentos inválidos. El sistema se cerrará.")
