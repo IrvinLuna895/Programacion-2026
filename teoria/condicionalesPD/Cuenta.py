@@ -1,5 +1,8 @@
+''' 
+Created on Abril,2026 
+@author: irvinluna
 
-
+'''
 
 class Cuenta:
     def __init__(self, fechaCreacion, tipoCuenta, saldo):
