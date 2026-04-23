@@ -1,1 +1,1 @@
-asd
+En esta versión se introduce la clase Cliente y se establece una relación de composición entre objetos, donde un cliente posee una cuenta. Anteriormente, el sistema operaba directamente con la clase Cuenta; ahora, el flujo se reorganiza para que el Menu interactúe con Cliente, y este a su vez utilice los métodos de Cuenta. Esto implica un cambio en la ejecución, pasando de trabajar con un objeto Cuenta a trabajar con un objeto Cliente que contiene dicha cuenta.
